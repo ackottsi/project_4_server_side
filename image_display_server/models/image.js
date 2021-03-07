@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
   };
   Image.init({
     title: DataTypes.STRING,
-    date: DataTypes.DATE,
+    date: DataTypes.DATEONLY,
     comments: DataTypes.STRING,
     url: DataTypes.STRING
   }, {

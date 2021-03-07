@@ -8,6 +8,7 @@ const methodOverride = require('method-override');
 
 app.use(methodOverride('_method'));
 
+app.use('/images', routes.images)
 
 app.get('/somedata', (req, res) => {
     res.send('here is your information');
