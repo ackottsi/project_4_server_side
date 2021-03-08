@@ -19,7 +19,15 @@ const postImages=(req,res) =>{
     })
 }
 
+const removeImage = (req,res)=>{
+    Image.destroy({where: {id:req.params.index} })
+    .then(removeImage=>{
+        res.status(constants.SUCCESS.json(removeImage))
+    })
+}
+
 module.exports={
     getAll,
-    postImages
+    postImages,
+    removeImage
 }
