@@ -13,7 +13,7 @@ const getAll = (req, res) => {
 
 const postImages=(req,res) =>{
     console.log(req.body)
-    images.create(req.body)
+    Image.create(req.body)
     .then(addImage=>{
         res.status(constants.SUCCESS.json(addImage))
     })
