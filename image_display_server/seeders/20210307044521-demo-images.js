@@ -7,7 +7,7 @@ module.exports = {
         title: 'pic 1',
         date: '2015-08-07 05:00:01',
         comments: "first picture",
-        url:"/Users/ak64719/Desktop/Photos/IMG_20201105_142537.jpg"
+        url:"http://localhost:3002/IMG_20201105_142537.jpg"
     },
     {
         title: 'pic 2',
