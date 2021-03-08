@@ -18,6 +18,8 @@ const corsOptions = {
 
 app.use(cors(corsOptions))
 
+app.use(express.static(__dirname + '/uploads'));// provides ability to serve local images
+
 app.use('/images', routes.images)
 
 app.get('/somedata', (req, res) => {
