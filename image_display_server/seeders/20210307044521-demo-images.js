@@ -13,13 +13,13 @@ module.exports = {
         title: 'pic 2',
         date: '2000-08-07 05:00:01',
         comments: "second picture",
-        url:"/Users/ak64719/Desktop/Photos/IMG_20201105_164010.jpg"  
+        url:"http://localhost:3002/IMG_20201105_164010.jpg"  
     },
     {
     title: 'pic 3',
     date: '2014-08-07 05:00:01',
     comments:"Third picture",
-    url:"/Users/ak64719/Desktop/Photos/IMG_20201108_225340.jpg"
+    url:"http://localhost:3002/IMG_20201108_225340.jpg"
     }
   ],{});
 },

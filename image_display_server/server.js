@@ -16,6 +16,9 @@ const corsOptions = {
     optionsSuccessStatus: 200 //legacy browsers
   }
 
+
+  
+app.use(express.urlencoded({ extended: true }));
 app.use(cors(corsOptions))
 
 app.use(express.static(__dirname + '/uploads'));// provides ability to serve local images

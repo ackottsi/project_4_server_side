@@ -11,6 +11,15 @@ const getAll = (req, res) => {
     })
 }
 
+const postImages=(req,res) =>{
+    console.log(req.body)
+    images.create(req.body)
+    .then(addImage=>{
+        res.status(constants.SUCCESS.json(addImage))
+    })
+}
+
 module.exports={
-    getAll
+    getAll,
+    postImages
 }
