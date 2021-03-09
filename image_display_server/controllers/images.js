@@ -20,9 +20,10 @@ const postImages=(req,res) =>{
 }
 
 const removeImage = (req,res)=>{
-    Image.destroy({where: {id:req.params.index} })
-    .then(removeImage=>{
-        res.status(constants.SUCCESS.json(removeImage))
+    console.log(req)
+    Image.destroy({where: {id:req.params.id} })
+    .then(()=>{
+        res.status(constants.SUCCESS.send("success"))
     })
 }
 
