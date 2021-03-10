@@ -11,6 +11,22 @@ const getAll = (req, res) => {
     })
 }
 
+
+const getImageById=(req,res)=>{
+    Image.findByPk(req.params.id)
+    .then(foundImage=>{
+        if(foundImage === null){
+            res.status(constants.BAD_REQUEST).send('ERROR: Incorrect Image Id')
+        }else{
+            res.status(constants.SUCCESS).json(foundImage)
+        }
+    })
+    .catch(err => {
+        res.status(constants.INTERNAL_SERVER_ERROR).send(`ERROR: ${err}`);
+    })
+}
+
+
 const postImages=(req,res) =>{
     console.log(req.body)
     Image.create(req.body)
@@ -31,5 +47,6 @@ const removeImage = (req,res)=>{
 module.exports={
     getAll,
     postImages,
-    removeImage
+    removeImage,
+    getImageById
 }
