@@ -40,10 +40,10 @@ const editImageInfo = (req,res)=>{
         }else{
             Image.findByPk(req.params.id)
             .then(foundImage=>{
-                if(foundPost === null){
+                if(foundImage === null){
                     res.status(constants.BAD_REQUEST).send('ERROR: Incorrect image Id')
                 }else{
-                    res.status(constants.SUCCESS).json(foundPost)
+                    res.status(constants.SUCCESS).json(foundImage)
                 }
             })
             .catch(err => {
