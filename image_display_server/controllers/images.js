@@ -27,6 +27,38 @@ const getImageById=(req,res)=>{
 }
 
 
+const editImageInfo = (req,res)=>{
+    Image.update(req.body,{
+        where: {
+            id:req.params.id
+        },
+        returning:true
+    })
+    .then(updateImage=>{
+        if(updateImage[0]===0){
+            res.status(constants.BAD_REQUEST).send('ERROR: did not find image')
+        }else{
+            Image.findByPk(req.params.id)
+            .then(foundImage=>{
+                if(foundPost === null){
+                    res.status(constants.BAD_REQUEST).send('ERROR: Incorrect image Id')
+                }else{
+                    res.status(constants.SUCCESS).json(foundPost)
+                }
+            })
+            .catch(err => {
+                res.status(constants.INTERNAL_SERVER_ERROR).send(`ERROR: ${err}`);
+            })
+        }
+    })
+    .catch(err => {
+        res.status(constants.INTERNAL_SERVER_ERROR).send(`ERROR: ${err}`);
+    })
+}
+
+
+
+
 const postImages=(req,res) =>{
     console.log(req.body)
     Image.create(req.body)
@@ -34,6 +66,9 @@ const postImages=(req,res) =>{
         res.status(constants.SUCCESS.json(addImage))
     })
 }
+
+
+
 
 const removeImage = (req,res)=>{
     console.log(req.params)
@@ -48,5 +83,6 @@ module.exports={
     getAll,
     postImages,
     removeImage,
-    getImageById
+    getImageById,
+    editImageInfo
 }
