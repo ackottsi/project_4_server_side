@@ -30,7 +30,8 @@ app.use(bodyParser.json());
 
 app.use(express.static(__dirname + '/uploads'));// provides ability to serve local images
 
-app.use('/images', routes.images)
+app.use('/images', routes.images);
+app.use('/user', routes.user);
 
 
 app.listen(process.env.PORT, () => {

@@ -4,7 +4,8 @@ const Image = require('../models').Image;
 const constants = require('../constants')
 
 const getUserProfile = (req,res)=>{
-    User.findByPk(req.user.id,{
+    console.log
+    User.findByPk(req.params.id,{
         include:[
             {model:Image}
         ]
@@ -18,5 +19,5 @@ const getUserProfile = (req,res)=>{
 }
 
 module.exports = {
-    getUserProfile,
+    getUserProfile
 }
