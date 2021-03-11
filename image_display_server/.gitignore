@@ -20,7 +20,7 @@ config/
 
 # Icon must end with two \r
 Icon
-uploads/
+uploads/ 
 
 # Thumbnails
 ._*
