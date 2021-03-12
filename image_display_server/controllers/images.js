@@ -1,4 +1,5 @@
 const Image=require('../models').Image;
+const User=require('../models').User;
 const constants = require('../constants');
 
 const getAll = (req, res) => {
@@ -25,6 +26,9 @@ const getImageById=(req,res)=>{
         res.status(constants.INTERNAL_SERVER_ERROR).send(`ERROR: ${err}`);
     })
 }
+
+
+
 
 
 const editImageInfo = (req,res)=>{
@@ -84,5 +88,6 @@ module.exports={
     postImages,
     removeImage,
     getImageById,
-    editImageInfo
+    editImageInfo,
+
 }

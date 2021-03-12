@@ -18,6 +18,29 @@ const getUserProfile = (req,res)=>{
     })
 }
 
+
+
+const getUserImages=(req,res)=>{
+    User.findByPk(req.params.id,{
+        include:[
+            {model:Image}
+        ],
+    })
+            .then(user=>{
+                Image.findAll()
+                .then(allImages => {
+                    res.status(constants.SUCCESS).json(allImages)
+                })
+                .catch(err => {
+                    res.status(constants.INTERNAL_SERVER_ERROR).send(`ERROR: ${err}`);
+        })
+    })
+}
+
+
+
+
 module.exports = {
-    getUserProfile
+    getUserProfile,
+    getUserImages
 }
