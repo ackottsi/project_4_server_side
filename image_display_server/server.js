@@ -5,6 +5,8 @@ const routes = require('./routes');
 const cors = require('cors');
 const methodOverride = require('method-override'); 
 const bodyParser = require('body-parser');
+const jwt = require('jsonwebtoken');
+const constants = require('./constants');
 
 
 app.use((req, res, next)=>{
@@ -28,10 +30,32 @@ const corsOptions = {
 app.use(cors(corsOptions))
 app.use(bodyParser.json());
 
+const verifyToken = (req, res, next) => {
+    let token = req.headers['authorization'];
+    if(token){
+        token = token.substring(constants.BEARER_START_INDEX) //remove string Bearer from the token
+    }
+
+    jwt.verify(token, process.env.JWT_SECRET, (err, decodedUser) => {
+        if(err || !decodedUser){
+            return res.status(constants.UNAUTHORIZED).send(`ERROR: ${err}`);
+        }
+        req.user = decodedUser;//set the decoded payload to req object as the user information(username, id)
+
+        next();// for control to go to the next line of code
+    })
+}
+
+
+
+
 app.use(express.static(__dirname + '/uploads'));// provides ability to serve local images
 
+
+app.use('/auth/verify', verifyToken, routes.auth);
+app.use('/user', verifyToken, routes.user);
 app.use('/images', routes.images);
-app.use('/user', routes.user);
+
 
 
 app.listen(process.env.PORT, () => {
