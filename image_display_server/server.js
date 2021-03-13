@@ -7,6 +7,7 @@ const methodOverride = require('method-override');
 const bodyParser = require('body-parser');
 const jwt = require('jsonwebtoken');
 const constants = require('./constants');
+const cookieParser = require("cookie-parser");
 
 
 app.use((req, res, next)=>{
@@ -16,7 +17,7 @@ app.use((req, res, next)=>{
   
 
 app.use(express.urlencoded({ extended: true }));
-
+app.use(cookieParser());
 
 app.use(methodOverride('_method'));
 
@@ -31,32 +32,32 @@ app.use(cors(corsOptions))
 app.use(bodyParser.json());
 
 const verifyToken = (req, res, next) => {
-    let token = req.headers['authorization'];
-    if(token){
-        token = token.substring(constants.BEARER_START_INDEX) //remove string Bearer from the token
-    }
-
+    let token = req.cookies.jwt; // COOKIE PARSER GIVES YOU A .cookies PROP, WE NAMED OUR TOKEN jwt
+  
+    console.log("Cookies: ", req.cookies.jwt);
+  
     jwt.verify(token, process.env.JWT_SECRET, (err, decodedUser) => {
-        if(err || !decodedUser){
-            return res.status(constants.UNAUTHORIZED).send(`ERROR: ${err}`);
-        }
-        req.user = decodedUser;//set the decoded payload to req object as the user information(username, id)
-
-        next();// for control to go to the next line of code
-    })
-}
+      if (err || !decodedUser) {
+        return res.status(401).json({ error: "Unauthorized Request" });
+      }
+      req.user = decodedUser; // ADDS A .user PROP TO REQ FOR TOKEN USER
+      console.log(decodedUser);
+  
+      next();
+    });
+  };
 
 
 
 
 app.use(express.static(__dirname + '/uploads'));// provides ability to serve local images
 
+app.use('/images', routes.images);
+app.use('/user', routes.user)
+app.use('/auth', routes.auth)
 
 app.use('/auth/verify', verifyToken, routes.auth);
 app.use('/user', verifyToken, routes.user);
-app.use('/images', routes.images);
-
-
 
 app.listen(process.env.PORT, () => {
     console.log(`I am listening on port ${process.env.PORT}`);

@@ -43,6 +43,7 @@ const signup = (req, res) => {
 }
 
 const login = (req, res) => {
+    (console.log("I am running login"))
     User.findOne({
         where: {
             username: req.body.username
@@ -61,12 +62,10 @@ const login = (req, res) => {
                         process.env.JWT_SECRET,
                         {
                             expiresIn: "30 days"
-                        }
-                    )
-                    res.status(constants.SUCCESS).json({
-                        "token" : token,
-                        "user": foundUser
-                    });
+                        },
+                    );
+                   res.send(foundUser)
+                    
                 } else {
                     res.status(constants.BAD_REQUEST).send(`ERROR: Incorrect Username/Password`);
                 }
@@ -82,7 +81,7 @@ const login = (req, res) => {
 }
 
 const verifyUser = (req, res) => {
-    User.findByPk(req.user.id, {
+    User.findByPk(req.params.id, {
         attributes: ['id', 'username']
     })
     .then(foundUser => {
