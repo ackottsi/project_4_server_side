@@ -1,3 +1,5 @@
 module.exports={
-    images:require('./images')
+    images:require('./images'),
+    user:require('./user'),
+    auth: require('./auth'),
 }
