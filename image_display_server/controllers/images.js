@@ -67,7 +67,15 @@ const postImages=(req,res) =>{
     console.log(req.body)
     Image.create(req.body)
     .then(addImage=>{
-        res.status(constants.SUCCESS.json(addImage))
+        console.log("hitting post")
+        // console.log(constants.SUCCESS).json(addImage)
+        // console.log(addImage)
+        res.status(constants.SUCCESS).json(addImage)
+        
+    })
+
+    .catch(err => {
+        res.status(constants.INTERNAL_SERVER_ERROR).send(`ERROR: ${err}`);
     })
 }
 
