@@ -7,35 +7,35 @@ module.exports = {
         title: 'pic 1',
         date: '2015-08-07 05:00:01',
         comments: "first picture",
-        url:"http://localhost:3002/IMG_20201105_142537.jpg",
+        url:"https://imagebucketgaackproject.s3.us-east-2.amazonaws.com/Imagefolder/IMG_20200906_174929.jpg",
         userId:1
     },
     {
         title: 'pic 2',
         date: '2000-08-07 05:00:01',
         comments: "second picture",
-        url:"http://localhost:3002/IMG_20201105_164010.jpg",
+        url:"https://imagebucketgaackproject.s3.us-east-2.amazonaws.com/Imagefolder/IMG_20201011_153957.jpg",
         userId:2  
     },
     {
     title: 'pic 3',
     date: '2014-08-07 05:00:01',
     comments:"Third picture",
-    url:"http://localhost:3002/IMG_20201108_225340.jpg",
+    url:"https://imagebucketgaackproject.s3.us-east-2.amazonaws.com/Imagefolder/IMG_20201105_142424.jpg",
     userId:3
     },
     {
-      title: 'Mower',
+      title: 'sunset',
       date: '2014-08-07 05:00:01',
       comments:"4th picture",
-      url:"http://localhost:3002/MVIMG_20200906_174931.jpg",
+      url:"https://imagebucketgaackproject.s3.us-east-2.amazonaws.com/Imagefolder/IMG_20201105_164029.jpg",
       userId:1
       },
       {
-        title: 'barn',
+        title: 'tractor',
         date: '2014-08-07 05:00:01',
         comments:"4th picture",
-        url:"http://localhost:3002/IMG_20201105_164018.jpg",
+        url:"https://imagebucketgaackproject.s3.us-east-2.amazonaws.com/Imagefolder/IMG_20190421_121242.jpg",
         userId:1
         }
       
