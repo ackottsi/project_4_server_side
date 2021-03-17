@@ -53,5 +53,5 @@ app.use('/auth/verify', verifyToken, routes.auth);
 app.use('/user', verifyToken, routes.user);
 
 app.listen(process.env.PORT, () => {
-    console.log(`I am listening on port ${process.env.PORT}`);
+    console.log(`I am listening on port ${process.env.PORT}`)
 })
