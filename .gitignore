@@ -7,7 +7,7 @@
 # - VS Code
 # - Node (typically project-level gitignore, not global)
 
-node_modules/
+
 .DS_Store
 
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
