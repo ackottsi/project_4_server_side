@@ -1,12 +1,23 @@
 
 {
+
   "development": {
-    "username":"postgres",
-    "password":"Cutted1975",
   "database": "image_display_dev",
   "host": "127.0.0.1",
   "dialect": "postgres"
-  }
+  },
+ 
+   "production": {
+     "use_env_variable": "DATABASE_URL",
+     "dialectOptions": {
+       "ssl": {
+         "require": true,
+         "rejectUnauthorized": false
+       }
+     }
+   },
   
-
+   "scripts": {
+   "start": "node server.js"
+     }
  }
