@@ -15,7 +15,6 @@ app.use((req, res, next)=>{
     next();
   })
   
-
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
@@ -46,8 +45,6 @@ const verifyToken = (req, res, next) => {
       next();
     });
   };
-
-
 
 
 app.use(express.static(__dirname + '/uploads'));// provides ability to serve local images

@@ -28,9 +28,6 @@ const getImageById=(req,res)=>{
 }
 
 
-
-
-
 const editImageInfo = (req,res)=>{
     Image.update(req.body,{
         where: {
