@@ -61,7 +61,6 @@ const editImageInfo = (req,res)=>{
 
 
 const postImages=(req,res) =>{
-    console.log(req.body)
     Image.create(req.body)
     .then(addImage=>{
         res.status(constants.SUCCESS).json(addImage)
@@ -77,7 +76,6 @@ const postImages=(req,res) =>{
 
 
 const removeImage = (req,res)=>{
-    console.log(req.params)
     Image.destroy({where: {id:req.params.id} })
     .then(()=>{
         res.status(constants.SUCCESS).send("success")
