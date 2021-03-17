@@ -4,7 +4,6 @@ const Image = require('../models').Image;
 const constants = require('../constants')
 
 const getUserProfile = (req,res)=>{
-    console.log
     User.findByPk(req.params.id,{
         include:[
             {model:Image}
