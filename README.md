@@ -3,7 +3,7 @@
 ## Photo Book Display App
 
 
-[Link to Movie App](http://imagephotobookgaproject4.surge.sh/)
+[Link to deployed photo book app](http://imagephotobookgaproject4.surge.sh/)
 
 
 [Link to git repository for back end](https://github.com/ackottsi/project_4_server_side)
