@@ -20,7 +20,7 @@ app.use(cookieParser());
 app.use(methodOverride('_method'));
 
 const corsOptions = {
-    origin: ['http://localhost:3000'],
+    origin: ['http://imagephotobookgaproject4.surge.sh'],
     methods: "GET,POST,PUT,DELETE",
     credentials: true, //allows session cookies to be sent back and forth
     optionsSuccessStatus: 200 //legacy browsers
@@ -28,14 +28,14 @@ const corsOptions = {
 
 app.use(cors(corsOptions))
 
-app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "http://imagephotobookgaproject4.surge.sh");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  next();
-})
+// app.use((req, res, next) => {
+//   res.setHeader("Access-Control-Allow-Origin", "http://imagephotobookgaproject4.surge.sh");
+//   res.header(
+//     "Access-Control-Allow-Headers",
+//     "Origin, X-Requested-With, Content-Type, Accept"
+//   );
+//   next();
+// })
 
 
 
