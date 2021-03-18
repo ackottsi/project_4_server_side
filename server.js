@@ -29,7 +29,7 @@ const corsOptions = {
 app.use(cors(corsOptions))
 
 app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "http://http://imagephotobookgaproject4.surge.sh/");
+  res.setHeader("Access-Control-Allow-Origin", "http://imagephotobookgaproject4.surge.sh/");
   res.header(
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"
